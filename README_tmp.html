@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="primera-parte">Primera parte</h1>
+<p>Create a bridge network in Docke</p>
+<pre class="hljs"><code><div>docker network create jenkins
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image.png" alt="alt text"></p>
+<p>In order to execute Docker commands inside Jenkins nodes, download and run the docker:dind Docker image</p>
+<pre class="hljs"><code><div>docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-1.png" alt="alt text"></p>
+<p>Customize the official Jenkins Docker image</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> ..
+nano Dockerfile
+</div></code></pre>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">FROM</span> jenkins/jenkins:<span class="hljs-number">2.492</span>.<span class="hljs-number">1</span>-jdk17
+    <span class="hljs-keyword">USER</span> root
+    <span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y lsb-release</span>
+    <span class="hljs-keyword">RUN</span><span class="bash"> curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+    https://download.docker.com/linux/debian/gpg</span>
+    <span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">"deb [arch=<span class="hljs-variable">$(dpkg --print-architecture)</span> \
+    signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+    https://download.docker.com/linux/debian \
+    <span class="hljs-variable">$(lsb_release -cs)</span> stable"</span> &gt; /etc/apt/sources.list.d/docker.list</span>
+    <span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y docker-ce-cli</span>
+    <span class="hljs-keyword">USER</span> jenkins
+    <span class="hljs-keyword">RUN</span><span class="bash"> jenkins-plugin-cli --plugins <span class="hljs-string">"blueocean docker-workflow"</span></span>
+</div></code></pre>
+<p>Build a new docker image from this Dockerfile, and assign the image a meaningful name, such as &quot;myjenkins-blueocean:2.492.1-1&quot;:</p>
+<pre class="hljs"><code><div>docker build -t myjenkins-blueocean:2.492.1-1 .
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-2.png" alt="alt text"></p>
+<p>Run your own myjenkins-blueocean:2.492.1-1 image as a container in Docker</p>
+<pre class="hljs"><code><div>  docker run \
+    --name jenkins-blueocean \
+    --restart=on-failure \
+    --detach \
+    --network jenkins \
+    --env DOCKER_HOST=tcp://docker:2376 \
+    --env DOCKER_CERT_PATH=/certs/client \
+    --env DOCKER_TLS_VERIFY=1 \
+    --publish 8080:8080 \
+    --publish 50000:50000 \
+    --volume jenkins-data:/var/jenkins_home \
+    --volume jenkins-docker-certs:/certs/client:ro \
+    myjenkins-blueocean:2.492.1-1
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-3.png" alt="alt text"></p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-5.png" alt="alt text"></p>
+<pre class="hljs"><code><div>docker logs jenkins-blueocean
+</div></code></pre>
+<pre class="hljs"><code><div>752b699f61024c06aad14779353911dc
+</div></code></pre>
+<p>On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-4.png" alt="alt text"></p>
+<p>After unlocking Jenkins, the Customize Jenkins page appears. Install suggested plugins</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-6.png" alt="alt text"></p>
+<p>Skip</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-7.png" alt="alt text"></p>
+<p>When the Jenkins is ready page appears, click Start using Jenkins.
+<img src="file:///c:/Users/aleji/Downloads/ds/image-8.png" alt="alt text"></p>
+<h1 id="segunda-parte">Segunda parte</h1>
+<p>Instalar un agente de Jenkins y conectarlo con el controlador de Jenkins (El agente y el controlador deben estar en la misma red).</p>
+<p>In a terminal window</p>
+<pre class="hljs"><code><div>  ssh-keygen -f ~/.ssh/jenkins_agent_key
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-10.png" alt="alt text"></p>
+<p>Go to your Jenkins dashboard</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-11.png" alt="alt text"></p>
+<p>Go to <code>Manage Jenkins</code> option in main menu and click on the Manage Credentials button</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-13.png" alt="alt text"></p>
+<p>Select the drop option Add Credentials from the global item</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-14.png" alt="alt text"></p>
+<p>Fill in the form:</p>
+<p>Kind: SSH Username with private key;</p>
+<p>id: jenkins</p>
+<p>description: The jenkins ssh key</p>
+<p>username: jenkins</p>
+<p>Private Key: select <code>Enter directly</code> and press the Add button to insert the content of your private key file at <code>~/.ssh/jenkins_agent_key</code></p>
+<p>Passphrase: fill your passphrase used to generate the SSH key pair (leave empty if you didn’t use one at the previous step) and then press the <code>Create</code> button</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-15.png" alt="alt text"></p>
+<p>Here we will use the <code>docker-ssh-agent</code> image to create the agent containers.</p>
+<pre class="hljs"><code><div>cat ~/.ssh/jenkins_agent_key.pub
+
+docker run -d --rm --name=agent1 --network jenkins -p 4444:22 -e <span class="hljs-string">"JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCv0lBlJ+6PMrgw5yQpsF4a/izRBOj2CQfb3jtrCNPeByVkZdHLxH5sE1y7dTQ+ZAvySy9b5ut1fC2S0HfuLlCCrVWhSB8YjRQNdIMKzx+p0FfjdR1GxJBGNqsygptuN8Kq5vfj9LX9InKt6wf//FStd0ECcga6qbC+yxekD3x1sRfWs3/sCTuzBuPLmplgH6HgwcwsdF4vlmx4bq8ejJpTjE8wmBmPsUSapKKxttX2HX+PYhSm3p4ldWzuYEu8dd98PEad9zLv9cSf05ulTOw1W86KYaSurZK8GWo1uAo8+eb5p/n/lQ+U/DBVTo3VSQlpFywbQhIsV2Ejh5RLluwxcvDFYTObZDClDS4PiyhUUsoRCPWbEpyFzsfshMOYsY3ZF5x7DY62GVUR6HbwhUBCJ1Kh1X9irYhiJmWNBlE99fUdpF0MMPyANcssCbR2yUBXrB2h440dpKTkFVrTmi7K+NSIolC7m9C8jQBJRwuD+/Iibq2VQL3p3vQ5THrvkYk="</span> jenkins/ssh-agent:alpine-jdk17
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-17.png" alt="alt text"></p>
+<p>Verify the agent</p>
+<pre class="hljs"><code><div>docker logs agent1
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-18.png" alt="alt text"></p>
+<p>Ingresar a la configuración de Jenkins, Nodos</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-19.png" alt="alt text"></p>
+<p>Crear un nuevo nodo que se lance al conectarlo al controlador.</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-20.png" alt="alt text"></p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-21.png" alt="alt text"></p>
+<p>Correr el comando generado por Jenkins para iniciar y conectar el agente.</p>
+<pre class="hljs"><code><div>mkdir agent
+</div></code></pre>
+<p>Seleccionar el nodo</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-22.png" alt="alt text"></p>
+<p>Relanzar agente</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-23.png" alt="alt text"></p>
+<p>Si no funciona, podemos intentar pasar la clave directamente a jenkins</p>
+<pre class="hljs"><code><div>docker <span class="hljs-built_in">exec</span> -it jenkins-blueocean sh -c <span class="hljs-string">"echo '-----BEGIN OPENSSH PRIVATE KEY----- ...' &gt; /var/jenkins_home/.ssh/id_rsa"</span>
+docker <span class="hljs-built_in">exec</span> -it jenkins-blueocean sh -c <span class="hljs-string">"chmod 600 /var/jenkins_home/.ssh/id_rsa"</span>
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-24.png" alt="alt text"></p>
+<h1 id="tercera-parte">Tercera parte</h1>
+<p>Crear un ítem de tipo pipeline en Jenkins y configurar el script usando una aplicación sencilla (e.j., https://github.com/jenkins-docs/simple-java-maven-app). Ejecutar el pipeline y revisar la consola.</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-25.png" alt="alt text"></p>
+<p>Crear tarea</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-27.png" alt="alt text"></p>
+<p>En la página de configuración del pipeline, desplázate hacia abajo hasta la sección &quot;Pipeline&quot;.</p>
+<p>En la opción &quot;Definition&quot;, selecciona &quot;Pipeline script from SCM&quot;.</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-28.png" alt="alt text"></p>
+<p>En &quot;SCM&quot;, selecciona &quot;Git&quot;.</p>
+<p>En &quot;Repository URL&quot;, ingresa la URL del repositorio de ejemplo:</p>
+<p>Cambiar el path del Jenkinsfile si no esta en la raiz</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-29.png" alt="alt text"></p>
+<p>Una vez guardado, serás redirigido a la página del pipeline.</p>
+<p>Haz clic en &quot;Construir ahora&quot; (o &quot;Build Now&quot;) para ejecutar el pipeline.</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-30.png" alt="alt text"></p>
+<p>Mirar la consola</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-31.png" alt="alt text"></p>
+<p>Da error porque el maven que esta jalando el jenkins no es el que pide en el pom.xml</p>
+<p>Crear un ítem de tipo pipeline en Jenkins y configurar el script usando Github+Maven. Ejecutar el pipeline y revise la consola.</p>
+<p>En la página de configuración del pipeline, desplázate hacia abajo hasta la sección &quot;Pipeline&quot;.</p>
+<p>En la opción &quot;Definition&quot;, selecciona &quot;Pipeline script&quot;.</p>
+<p>Seleccionar Github+Maven</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-32.png" alt="alt text"></p>
+<p>Ejecutar el pipeline y revise la consola.</p>
+<pre class="hljs"><code><div>Started by user admin
+
+Obtained jenkins/Jenkinsfile from git https://github.com/jenkins-docs/simple-java-maven-app
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins
+ in /var/jenkins_home/workspace/simple-java-maven-app
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ &gt; git rev-parse --resolve-git-dir /var/jenkins_home/workspace/simple-java-maven-app/.git # timeout=10
+Fetching changes from the remote Git repository
+ &gt; git config remote.origin.url https://github.com/jenkins-docs/simple-java-maven-app # timeout=10
+Fetching upstream changes from https://github.com/jenkins-docs/simple-java-maven-app
+ &gt; git --version # timeout=10
+ &gt; git --version # 'git version 2.39.5'
+ &gt; git fetch --tags --force --progress -- https://github.com/jenkins-docs/simple-java-maven-app +refs/heads/*:refs/remotes/origin/* # timeout=10
+ &gt; git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 05f17fbceabf683500da604bba18c6b8d7e3f109 (refs/remotes/origin/master)
+ &gt; git config core.sparsecheckout # timeout=10
+ &gt; git checkout -f 05f17fbceabf683500da604bba18c6b8d7e3f109 # timeout=10
+Commit message: &quot;Merge pull request #1090 from jenkins-docs/dependabot/maven/org.apache.maven.plugins-maven-compiler-plugin-3.14.0&quot;
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . maven:3.9.0
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 536f8b7b9379fa4822662cd3365920932964ae59eebb82511539a529eb38485a
+but /var/jenkins_home/workspace/simple-java-maven-app could not be found among []
+but /var/jenkins_home/workspace/simple-java-maven-app@tmp could not be found among []
+$ docker run -t -d -u 1000:1000 -v /root/.m2:/root/.m2 -w /var/jenkins_home/workspace/simple-java-maven-app -v /var/jenkins_home/workspace/simple-java-maven-app:/var/jenkins_home/workspace/simple-java-maven-app:rw,z -v /var/jenkins_home/workspace/simple-java-maven-app@tmp:/var/jenkins_home/workspace/simple-java-maven-app@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.9.0 cat
+$ docker top 0ab1fd23720ae0b95b27b5cdb4508a7cea875bcda0ee671f3f1bdb9fae52b7e6 -eo pid,comm
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ mvn -B -DskipTests clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------&lt; com.mycompany.app:my-app &gt;----------------------
+[INFO] Building my-app 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ my-app ---
+[INFO] 
+[INFO] --- enforcer:3.5.0:enforce (enforce-maven) @ my-app ---
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.548 s
+[INFO] Finished at: 2025-03-01T23:25:20Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.5.0:enforce (enforce-maven) on project my-app: 
+[ERROR] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion failed with message:
+[ERROR] Detected Maven Version: 3.9.0 is not in the allowed range [3.9.2,).
+[ERROR] -&gt; [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+Stage &quot;Test&quot; skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deliver)
+Stage &quot;Deliver&quot; skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+$ docker stop --time=1 0ab1fd23720ae0b95b27b5cdb4508a7cea875bcda0ee671f3f1bdb9fae52b7e6
+$ docker rm -f --volumes 0ab1fd23720ae0b95b27b5cdb4508a7cea875bcda0ee671f3f1bdb9fae52b7e6
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-33.png" alt="alt text"></p>
+<p>Modificar el script anterior para que verifique si el proyecto ya existe, en este caso elimine la carpeta y luego lo descargue de nuevo el proyecto.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// agregar estas stages al pipeline</span>
+stage(<span class="hljs-string">'Check and Clean Workspace'</span>) {
+            steps {
+                script {
+                    <span class="hljs-comment">// Define the directory of the project</span>
+                    <span class="hljs-keyword">def</span> projectDir = <span class="hljs-string">"simple-maven-project-with-tests"</span>
+
+                    <span class="hljs-comment">// Check if the directory exists</span>
+                    <span class="hljs-keyword">if</span> (fileExists(projectDir)) {
+                        echo <span class="hljs-string">"Project directory exists. Deleting..."</span>
+                        <span class="hljs-comment">// Delete the directory</span>
+                        sh <span class="hljs-string">"rm -rf ${projectDir}"</span>
+                    } <span class="hljs-keyword">else</span> {
+                        echo <span class="hljs-string">"Project directory does not exist. Proceeding to clone..."</span>
+                    }
+                }
+            }
+        }
+
+        stage(<span class="hljs-string">'Clone Repository'</span>) {
+            steps {
+                <span class="hljs-comment">// Get some code from a GitHub repository</span>
+                git <span class="hljs-string">'https://github.com/jglick/simple-maven-project-with-tests.git'</span>
+            }
+        }
+</div></code></pre>
+<p>Ejecutar el pipeline y revise la consola.</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-34.png" alt="alt text"></p>
+<pre class="hljs"><code><div>Started by user admin
+
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins
+ in /var/jenkins_home/workspace/simple-java-maven-app2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Check and Clean Workspace)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] echo
+Project directory does not exist. Proceeding to clone...
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Clone Repository)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ &gt; git rev-parse --resolve-git-dir /var/jenkins_home/workspace/simple-java-maven-app2/.git # timeout=10
+Fetching changes from the remote Git repository
+ &gt; git config remote.origin.url https://github.com/jglick/simple-maven-project-with-tests.git # timeout=10
+Fetching upstream changes from https://github.com/jglick/simple-maven-project-with-tests.git
+ &gt; git --version # timeout=10
+ &gt; git --version # 'git version 2.39.5'
+ &gt; git fetch --tags --force --progress -- https://github.com/jglick/simple-maven-project-with-tests.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ &gt; git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 9a5e9832814aa17fa7e514e5890fc6cf913d9a77 (refs/remotes/origin/master)
+ &gt; git config core.sparsecheckout # timeout=10
+ &gt; git checkout -f 9a5e9832814aa17fa7e514e5890fc6cf913d9a77 # timeout=10
+ &gt; git branch -a -v --no-abbrev # timeout=10
+ &gt; git branch -D master # timeout=10
+ &gt; git checkout -b master 9a5e9832814aa17fa7e514e5890fc6cf913d9a77 # timeout=10
+Commit message: &quot;Creating a main class so there is something for `javadoc:javadoc` to do&quot;
+ &gt; git rev-list --no-walk 9a5e9832814aa17fa7e514e5890fc6cf913d9a77 # timeout=10
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn -Dmaven.test.failure.ignore=true clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------&lt; test:simple-maven-project-with-tests &gt;----------------
+[INFO] Building simple-maven-project-with-tests 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ simple-maven-project-with-tests ---
+[INFO] Deleting /var/jenkins_home/workspace/simple-java-maven-app2/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ simple-maven-project-with-tests ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/simple-java-maven-app2/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ simple-maven-project-with-tests ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug target 1.8] to target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ simple-maven-project-with-tests ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/simple-java-maven-app2/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ simple-maven-project-with-tests ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug target 1.8] to target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] /var/jenkins_home/workspace/simple-java-maven-app2/src/test/java/test/Base.java: /var/jenkins_home/workspace/simple-java-maven-app2/src/test/java/test/Base.java uses or overrides a deprecated API.
+[INFO] /var/jenkins_home/workspace/simple-java-maven-app2/src/test/java/test/Base.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ simple-maven-project-with-tests ---
+[INFO] Surefire report directory: /var/jenkins_home/workspace/simple-java-maven-app2/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running test.SomeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in test.SomeTest
+Running test.OtherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in test.OtherTest
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ simple-maven-project-with-tests ---
+[INFO] Building jar: /var/jenkins_home/workspace/simple-java-maven-app2/target/simple-maven-project-with-tests-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.627 s
+[INFO] Finished at: 2025-03-01T23:43:46Z
+[INFO] ------------------------------------------------------------------------
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+</div></code></pre>
+<p>Agregue un parámetro a Jenkins que permita escoger cual es la rama que se va a realizar la compilación, puede utilizar la rama declarative o testng disponibles en el proyecto de ejemplo</p>
+<pre class="hljs"><code><div>    parameters {
+        choice(
+<span class="hljs-symbol">            name:</span> <span class="hljs-string">'BRANCH'</span>,
+<span class="hljs-symbol">            choices:</span> [<span class="hljs-string">'declarative'</span>, <span class="hljs-string">'testng'</span>],
+<span class="hljs-symbol">            description:</span> <span class="hljs-string">'Select the branch to build'</span>
+        )
+    }
+</div></code></pre>
+<p>y en stages reemplazar</p>
+<pre class="hljs"><code><div>        stage(<span class="hljs-string">'Clone Repository'</span>) {
+            steps {
+                <span class="hljs-comment">// Get some code from a GitHub repository, using the selected branch</span>
+                git <span class="hljs-string">branch:</span> <span class="hljs-string">"${params.BRANCH}"</span>, <span class="hljs-string">url:</span> <span class="hljs-string">'https://github.com/jglick/simple-maven-project-with-tests.git'</span>
+            }
+        }
+</div></code></pre>
+<pre class="hljs"><code><div>Ejecutar el pipeline y revise la consola.
+
+Started by user admin
+
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins
+ in /var/jenkins_home/workspace/simple-java-maven-app2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Check and Clean Workspace)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] echo
+Project directory does not exist. Proceeding to clone...
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Clone Repository)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ &gt; git rev-parse --resolve-git-dir /var/jenkins_home/workspace/simple-java-maven-app2/.git # timeout=10
+Fetching changes from the remote Git repository
+ &gt; git config remote.origin.url https://github.com/jglick/simple-maven-project-with-tests.git # timeout=10
+Fetching upstream changes from https://github.com/jglick/simple-maven-project-with-tests.git
+ &gt; git --version # timeout=10
+ &gt; git --version # 'git version 2.39.5'
+ &gt; git fetch --tags --force --progress -- https://github.com/jglick/simple-maven-project-with-tests.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ &gt; git rev-parse refs/remotes/origin/declarative^{commit} # timeout=10
+Checking out Revision 88194bba5db3b3f5cd204e27c151b6788f896d9d (refs/remotes/origin/declarative)
+ &gt; git config core.sparsecheckout # timeout=10
+ &gt; git checkout -f 88194bba5db3b3f5cd204e27c151b6788f896d9d # timeout=10
+ &gt; git branch -a -v --no-abbrev # timeout=10
+ &gt; git branch -D declarative # timeout=10
+ &gt; git checkout -b declarative 88194bba5db3b3f5cd204e27c151b6788f896d9d # timeout=10
+Commit message: &quot;`label BUILD_TAG` deprecated&quot;
+ &gt; git rev-list --no-walk 88194bba5db3b3f5cd204e27c151b6788f896d9d # timeout=10
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn -Dmaven.test.failure.ignore=true clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------&lt; test:simple-maven-project-with-tests &gt;----------------
+[INFO] Building simple-maven-project-with-tests 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ simple-maven-project-with-tests ---
+[INFO] Deleting /var/jenkins_home/workspace/simple-java-maven-app2/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ simple-maven-project-with-tests ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/simple-java-maven-app2/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ simple-maven-project-with-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ simple-maven-project-with-tests ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/simple-java-maven-app2/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ simple-maven-project-with-tests ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug target 1.7] to target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 7
+[WARNING] source value 7 is obsolete and will be removed in a future release
+[WARNING] target value 7 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ simple-maven-project-with-tests ---
+[INFO] Surefire report directory: /var/jenkins_home/workspace/simple-java-maven-app2/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running test.SomeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 sec - in test.SomeTest
+Running test.OtherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in test.OtherTest
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ simple-maven-project-with-tests ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /var/jenkins_home/workspace/simple-java-maven-app2/target/simple-maven-project-with-tests-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.807 s
+[INFO] Finished at: 2025-03-01T23:49:54Z
+[INFO] ------------------------------------------------------------------------
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-36.png" alt="alt text"></p>
+<p>Forkeamos el repo y agregamos nuestro pipeline en el Jenkinsfile</p>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-37.png" alt="alt text"></p>
+<p>Luego usamos la opcion de Pipeline script from SCM y con el link del repo</p>
+<pre class="hljs"><code><div>Started by user admin
+
+Obtained Jenkinsfile from git https://github.com/elkofix/simple-maven-project-with-tests
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins
+ in /var/jenkins_home/workspace/simple-java-maven-app2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ &gt; git rev-parse --resolve-git-dir /var/jenkins_home/workspace/simple-java-maven-app2/.git # timeout=10
+Fetching changes from the remote Git repository
+ &gt; git config remote.origin.url https://github.com/elkofix/simple-maven-project-with-tests # timeout=10
+Fetching upstream changes from https://github.com/elkofix/simple-maven-project-with-tests
+ &gt; git --version # timeout=10
+ &gt; git --version # 'git version 2.39.5'
+ &gt; git fetch --tags --force --progress -- https://github.com/elkofix/simple-maven-project-with-tests +refs/heads/*:refs/remotes/origin/* # timeout=10
+ &gt; git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision e687e649be5d96376437de41bed08e049397f0ba (refs/remotes/origin/master)
+ &gt; git config core.sparsecheckout # timeout=10
+ &gt; git checkout -f e687e649be5d96376437de41bed08e049397f0ba # timeout=10
+Commit message: &quot;Update Jenkinsfile&quot;
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Check and Clean Workspace)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] echo
+Project directory does not exist. Proceeding to clone...
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Clone Repository)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ &gt; git rev-parse --resolve-git-dir /var/jenkins_home/workspace/simple-java-maven-app2/.git # timeout=10
+Fetching changes from the remote Git repository
+ &gt; git config remote.origin.url https://github.com/jglick/simple-maven-project-with-tests.git # timeout=10
+Fetching upstream changes from https://github.com/jglick/simple-maven-project-with-tests.git
+ &gt; git --version # timeout=10
+ &gt; git --version # 'git version 2.39.5'
+ &gt; git fetch --tags --force --progress -- https://github.com/jglick/simple-maven-project-with-tests.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ &gt; git rev-parse refs/remotes/origin/declarative^{commit} # timeout=10
+Checking out Revision 88194bba5db3b3f5cd204e27c151b6788f896d9d (refs/remotes/origin/declarative)
+ &gt; git config core.sparsecheckout # timeout=10
+ &gt; git checkout -f 88194bba5db3b3f5cd204e27c151b6788f896d9d # timeout=10
+ &gt; git branch -a -v --no-abbrev # timeout=10
+ &gt; git branch -D declarative # timeout=10
+ &gt; git checkout -b declarative 88194bba5db3b3f5cd204e27c151b6788f896d9d # timeout=10
+Commit message: &quot;`label BUILD_TAG` deprecated&quot;
+ &gt; git rev-list --no-walk 88194bba5db3b3f5cd204e27c151b6788f896d9d # timeout=10
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn -Dmaven.test.failure.ignore=true clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------&lt; test:simple-maven-project-with-tests &gt;----------------
+[INFO] Building simple-maven-project-with-tests 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ simple-maven-project-with-tests ---
+[INFO] Deleting /var/jenkins_home/workspace/simple-java-maven-app2/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ simple-maven-project-with-tests ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/simple-java-maven-app2/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ simple-maven-project-with-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ simple-maven-project-with-tests ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/simple-java-maven-app2/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ simple-maven-project-with-tests ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug target 1.7] to target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 7
+[WARNING] source value 7 is obsolete and will be removed in a future release
+[WARNING] target value 7 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ simple-maven-project-with-tests ---
+[INFO] Surefire report directory: /var/jenkins_home/workspace/simple-java-maven-app2/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running test.SomeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.003 sec - in test.SomeTest
+Running test.OtherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 sec - in test.OtherTest
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 3
+
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ simple-maven-project-with-tests ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /var/jenkins_home/workspace/simple-java-maven-app2/target/simple-maven-project-with-tests-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.703 s
+[INFO] Finished at: 2025-03-02T00:36:18Z
+[INFO] ------------------------------------------------------------------------
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+</div></code></pre>
+<p><img src="file:///c:/Users/aleji/Downloads/ds/image-38.png" alt="alt text"></p>
+
+</body>
+</html>
