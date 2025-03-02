@@ -356,13 +356,13 @@ stage('Check and Clean Workspace') {
             steps {
                 script {
                     // Define the directory of the project
-                    def projectDir = "simple-maven-project-with-tests"
+                    def projectDir = "."
 
                     // Check if the directory exists
                     if (fileExists(projectDir)) {
                         echo "Project directory exists. Deleting..."
                         // Delete the directory
-                        sh "rm -rf ${projectDir}"
+                        deleteDir()
                     } else {
                         echo "Project directory does not exist. Proceeding to clone..."
                     }
@@ -407,9 +407,9 @@ Running on Jenkins
 [Pipeline] {
 [Pipeline] fileExists
 [Pipeline] echo
-Project directory does not exist. Proceeding to clone...
+Project directory exists. Deleting...
+[Pipeline] deleteDir
 [Pipeline] }
-[Pipeline] // script
 [Pipeline] }
 [Pipeline] // withEnv
 [Pipeline] }
@@ -572,9 +572,9 @@ Running on Jenkins
 [Pipeline] {
 [Pipeline] fileExists
 [Pipeline] echo
-Project directory does not exist. Proceeding to clone...
+Project directory exists. Deleting...
+[Pipeline] deleteDir
 [Pipeline] }
-[Pipeline] // script
 [Pipeline] }
 [Pipeline] // withEnv
 [Pipeline] }
